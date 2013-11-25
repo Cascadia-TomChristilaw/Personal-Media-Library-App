@@ -21,7 +21,7 @@ public class Splash extends Activity {
  
             @Override
             public void run() {
-                Intent doneSplashing = new Intent(Splash.this, Main.class);
+                Intent doneSplashing = new Intent(Splash.this, AddMovie.class);
                 startActivity(doneSplashing);
                 finish();
             }

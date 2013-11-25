@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">mediaPhile</string>
+    <string name="action_settings">Settings</string>
+    <string name="keepTrack">Catalog your media with mediaPhile!</string>
+    <string name="addMovieTitle">Add A Movie</string>
+    <string name="search">Search</string>
+    <string name="enterTitle">Enter Title Text</string>
+
+</resources>
