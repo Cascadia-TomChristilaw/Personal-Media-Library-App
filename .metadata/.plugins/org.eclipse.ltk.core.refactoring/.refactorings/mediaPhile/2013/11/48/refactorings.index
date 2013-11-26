@@ -6,3 +6,6 @@
 1385360793667	Extracts string 'null' into R.string.selectRating
 1385361302368	Rename field 'textView1'
 1385361367470	Extracts string 'null' into R.string.genre
+1385505300054	Extracts string 'null' into R.string.mpaaRating
+1385505658292	Rename field 'tableRow2'
+1385505767203	Extracts string 'null' into R.string.runtime

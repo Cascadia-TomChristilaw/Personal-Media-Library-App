@@ -69,30 +69,29 @@
 
 		<TableLayout
 		    android:id="@+id/movieInfoTableLayout"
-		    android:layout_width="fill_parent"
-		    android:layout_height="wrap_content"
-		    android:paddingLeft="8dp"
-		    android:paddingRight="8dp" >
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
 
 		    <TableRow
 		        android:id="@+id/tableRow0"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content" >
+		        android:layout_height="wrap_content"
+		        android:paddingLeft="5dp"
+		        android:paddingRight="5dp" >
 
 		        <TextView
 		            android:id="@+id/releaseDateTextView"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
 		            android:text="@string/releaseDate" />
 
 		        <EditText
 		            android:id="@+id/releaseDateEditText"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:layout_marginLeft="-50dp"
-		            android:layout_span="1"
+		            android:layout_marginLeft="10dp"
 		            android:layout_weight="1"
+		            android:ems="10"
 		            android:inputType="text" />
 
 		    </TableRow>
@@ -100,69 +99,27 @@
 		    <TableRow
 		        android:id="@+id/tableRow1"
 		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content" >
-
-		        <TextView
-		            android:id="@+id/mpaaRatingTextView"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
-		            android:gravity="center_horizontal"
-		            android:text="@string/mpaaRating" />
-
-		        <TextView
-		            android:id="@+id/genreTextView"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
-		            android:gravity="center_horizontal"
-		            android:text="@string/genre" />
-
-		        <TextView
-		            android:id="@+id/runtimeTextView"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
-		            android:gravity="center_horizontal"
-		            android:text="@string/runtime" />
+		        android:layout_height="wrap_content"
+		        android:paddingLeft="5dp"
+		        android:paddingRight="5dp" >
 
 		    </TableRow>
 
 		    <TableRow
 		        android:id="@+id/tableRow2"
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content" >
-
-		        <EditText
-		            android:id="@+id/mpaaRatingEditText"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
-		            android:ems="10"
-		            android:inputType="text" />
-
-		        <EditText
-		            android:id="@+id/genreEditText"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
-		            android:ems="10"
-		            android:inputType="text" />
-
-		        <EditText
-		            android:id="@+id/runtimeEditText"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_weight="1"
-		            android:ems="10"
-		            android:inputType="text" />
+		        android:layout_height="wrap_content"
+		        android:paddingLeft="5dp"
+		        android:paddingRight="5dp" >
 
 		    </TableRow>
 
 		    <TableRow
 		        android:id="@+id/tableRow3"
 		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content" >
+		        android:layout_height="wrap_content"
+		        android:paddingLeft="5dp"
+		        android:paddingRight="5dp" >
 
 		    </TableRow>
 		</TableLayout>
