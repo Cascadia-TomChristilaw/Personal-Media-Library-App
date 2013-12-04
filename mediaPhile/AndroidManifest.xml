@@ -15,8 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.cascadiabit272.mediaphile.Splash"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,14 +25,12 @@
         
          <activity
             android:name="com.cascadiabit272.mediaphile.Main"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:label="@string/app_name" >
         </activity>
         
          <activity
             android:name="com.cascadiabit272.mediaphile.AddMovie"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:label="@string/app_name" >
         </activity>
     </application>
 

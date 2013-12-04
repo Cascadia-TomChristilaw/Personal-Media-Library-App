@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;mediaPhile_fragmented&apos;" deleteContents="false" description="Delete resource &apos;mediaPhile_fragmented&apos;" element1="/mediaPhile_fragmented" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1386176827782"/>
+</session>
