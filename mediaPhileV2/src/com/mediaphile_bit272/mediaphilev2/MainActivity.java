@@ -2,11 +2,13 @@ package com.mediaphile_bit272.mediaphilev2;
 
 import android.annotation.TargetApi;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,6 @@ public class MainActivity extends FragmentActivity {
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
-   // TODO Auto-generated method stub
    super.onActivityCreated(savedInstanceState);
    
    ListAdapter myArrayAdapter = 
@@ -37,41 +38,49 @@ public class MainActivity extends FragmentActivity {
    setListAdapter(myArrayAdapter);
    
   }
-
+ 
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
    
    String clickedDetail = (String)l.getItemAtPosition(position);
    
-   if(isSinglePane == true){
-    /*
-     * The second fragment not yet loaded. 
-     * Load MyDetailFragment by FragmentTransaction, and pass 
-     * data from current fragment to second fragment via bundle.
-     */
-    MyDetailFragment myDetailFragment = new MyDetailFragment();
-    Bundle bundle = new Bundle();
-    bundle.putString("KEY_DETAIL", clickedDetail);
-    myDetailFragment.setArguments(bundle);
-    FragmentTransaction fragmentTransaction =
-      getActivity().getFragmentManager().beginTransaction();
-    fragmentTransaction.replace(R.id.phone_container, myDetailFragment);
-    fragmentTransaction.commit();
-    
-   }else{
-    /*
-     * Activity have two fragments. Pass data between fragments
-     * via reference to fragment
-     */
-    
-    //get reference to MyDetailFragment
-    MyDetailFragment myDetailFragment =
-      (MyDetailFragment)getFragmentManager().findFragmentById(R.id.detail_fragment);
-    myDetailFragment.updateDetail(clickedDetail);
-    
-   }
-  }
-
+   
+	MyDetailFragment myDetailFragment = new MyDetailFragment();
+	Bundle bundle = new Bundle();
+	bundle.putString("KEY_DETAIL", clickedDetail);
+	myDetailFragment.setArguments(bundle);
+	FragmentTransaction fragmentTransaction =
+	  getActivity().getFragmentManager().beginTransaction();
+	
+	if(isSinglePane == true){
+	    /*
+	     * The second fragment not yet loaded. 
+	     * Load MyDetailFragment by FragmentTransaction, and pass 
+	     * data from current fragment to second fragment via bundle.
+	     */
+	fragmentTransaction.replace(R.id.phone_container, myDetailFragment);	
+	}else{
+		/*
+	     * Activity have two fragments. Pass data between fragments
+	     * via reference to fragment
+	     */
+		fragmentTransaction.replace(R.id.detail_fragment_container, myDetailFragment);
+	}	
+	fragmentTransaction.addToBackStack(null);
+	fragmentTransaction.commit();    
+  }   
+ }
+ 
+ @Override
+ public void onBackPressed(){
+     FragmentManager fm = getFragmentManager();
+     if (fm.getBackStackEntryCount() > 0) {
+         Log.i("MainActivity", "popping backstack");
+         fm.popBackStack();
+     } else {
+         Log.i("MainActivity", "nothing on backstack, calling super");
+         super.onBackPressed();  
+     }
  }
  
  public static class MyDetailFragment extends Fragment {
@@ -85,7 +94,7 @@ public class MainActivity extends FragmentActivity {
 	  View view = null;
 	  Bundle bundle = getArguments();
 	  String detail = bundle.getString("KEY_DETAIL", "no argument pass");
-   // TODO Auto-generated method stub
+
 	  if (detail.matches("List Movies")) {
 		  view = inflater.inflate(R.layout.layout_detailfragment, null);
 	  }
@@ -94,45 +103,10 @@ public class MainActivity extends FragmentActivity {
 	  }
 	  
   
-//    textDetail.setText(detail);
+
     	return view;
    }
-  
-protected void updateDetail(String detail) {
-	  
-	// Create fragment and give it an argument specifying the article it should show
-	MyDetailFragment newFragment = new MyDetailFragment();
-	Bundle bundle = new Bundle();
-    bundle.putString("KEY_DETAIL", detail);
-    newFragment.setArguments(bundle);
 
-	FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-	// Replace whatever is in the fragment_container view with this fragment,
-	// and add the transaction to the back stack so the user can navigate back
-	transaction.replace(R.id.detail_fragment, newFragment);
-	transaction.addToBackStack(null);
-
-	// Commit the transaction
-	transaction.commit();
-	  
-	  	 
-//	   
-//		MyDetailFragment myDetailFragment = new MyDetailFragment();
-//	    Bundle bundle = new Bundle();
-//	    bundle.putString("KEY_DETAIL", detail);
-//		myDetailFragment.setArguments(bundle);
-//	  	FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//
-//	  	// Replace whatever is in the fragment_container view with this fragment,
-//	  	// and add the transaction to the back stack
-//	  	transaction.replace(R.id.detail_fragment, myDetailFragment);
-//	  	transaction.addToBackStack(null);
-//
-//	  	// Commit the transaction
-//	  	transaction.commit();
-	  }
-   
   }
  
  
@@ -150,10 +124,16 @@ protected void updateDetail(String detail) {
   if(v == null){
    //it's run on tablet
    isSinglePane = false;
-   /*
-    * MyListFragment and MyDetailFragment have been loaded in XML,
-    * no need load.
-    */
+   
+   if(savedInstanceState == null){
+	    //if's the first time created
+	   MyListFragment myListFragment = new MyListFragment();
+	    FragmentTransaction listFragmentTransaction = getFragmentManager().beginTransaction();
+	    listFragmentTransaction.add(R.id.list_fragment_container, myListFragment);
+	    listFragmentTransaction.commit();
+	    
+
+	   }
    
   }else{
    //it's run on phone
@@ -169,5 +149,7 @@ protected void updateDetail(String detail) {
    }
   }
  }
+ 
+ 
 
 }

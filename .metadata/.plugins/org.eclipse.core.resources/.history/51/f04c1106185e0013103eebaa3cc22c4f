@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+	<TableLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+		
+		<TableRow
+		    android:id="@+id/addMovieTitleTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
+		
+		    <TextView
+		        android:id="@+id/addMovieTitleTextView"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:background="#edd400"
+		        android:gravity="center_horizontal"
+		        android:paddingBottom="5dp"
+		        android:paddingTop="5dp"
+		        android:text="Add Movie"
+		        android:textColor="#555"
+		        android:textSize="20sp"
+		        android:textStyle="bold" />
+		
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/movieTitleTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+		
+		    <EditText
+		        android:id="@+id/movieTitleEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:layout_span="3"
+		        android:hint="Enter Title Text"
+		        android:inputType="text"
+		        android:textSize="15sp" >
+		
+		        <requestFocus />
+		    </EditText>
+		
+		    <Button
+		        android:id="@+id/titleSearchbutton"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		        android:text="Search" />
+	
+		    
+		    
+		
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow0"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" >
+
+		    <TextView
+		        android:id="@+id/releaseDateTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:text="Release Date" />
+
+		    <EditText
+		        android:id="@+id/releaseDateEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="-50dp"
+		        android:layout_span="1"
+		        android:layout_weight="1"
+		        android:inputType="text" />
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow1"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" >
+
+		    <TextView
+		        android:id="@+id/mpaaRatingTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="MPAA Rating" />
+
+		    <TextView
+		        android:id="@+id/genreTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="Genre" />
+
+		    <TextView
+		        android:id="@+id/runtimeTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="Runtime" />
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
+
+		    <EditText
+		        android:id="@+id/mpaaRatingEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="10"
+		        android:inputType="text" />
+
+		    <EditText
+		        android:id="@+id/genreEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="10"
+		        android:inputType="text" />
+
+		    <EditText
+		        android:id="@+id/runtimeEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="10"
+		        android:inputType="text" />
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
+
+			<TextView
+			    android:id="@+id/castTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:text="@string/cast" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow4"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
+
+			<EditText
+			    android:id="@+id/castEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="textMultiLine" />
+
+		</TableRow>
+
+	 </TableLayout>
+</ScrollView>
