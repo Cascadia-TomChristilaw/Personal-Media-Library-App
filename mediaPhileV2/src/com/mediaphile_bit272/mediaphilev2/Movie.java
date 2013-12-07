@@ -92,6 +92,28 @@ public class Movie {
         this._image_url = image_url;
         this._note = note;
     }
+    
+    //Constructor for JSON parsing
+    public Movie(String title,
+    		String release_date,
+    		String year,
+    		String mpaa_rating,
+    		String genre,
+    		String cast,
+    		String plot,
+    		String runtime,
+    		String image_url){
+    	this._title = title;
+    	this._release_date = release_date;
+    	this._year = year;
+    	this._mpaa_rating = mpaa_rating;
+    	this._genre = genre;
+    	this._cast = cast;
+    	this._plot = plot;
+    	this._runtime = runtime;
+    	this._image_url = image_url;
+    }
+    
     // getting ID
     public int getID(){
         return this._id;
