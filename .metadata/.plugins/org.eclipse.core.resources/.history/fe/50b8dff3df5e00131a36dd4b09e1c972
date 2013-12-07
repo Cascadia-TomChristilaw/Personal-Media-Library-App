@@ -168,7 +168,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 // Adding movie to list
                 movieList.add(movie);
             } while (cursor.moveToNext());
-        }     
+        }
+     
         // return movie list
         return movieList;
     }

@@ -176,7 +176,7 @@ public class MainActivity extends FragmentActivity {
   List<Movie> movies = db.getAllMovies();       
    
   for (Movie mv : movies) {
-      String log = "Id: " + mv.getID()+
+      String log = "Id: "+mv.getID()+
     		  " ,Title: " + mv.getTitle() +
     		  " ,Release Date: " + mv.getReleaseDate()+
     		  " ,Year: " + mv.getYear()+
