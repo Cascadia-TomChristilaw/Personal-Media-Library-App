@@ -1,0 +1,7 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DatabaseHandler extends SQLiteOpenHelper {
+
+}

@@ -1,0 +1,92 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+public class Movie {
+    
+    //private variables
+    int _id;
+    String _title;
+    String _release_date;
+    String _mpaa_rating;
+    String _genre;
+    String _cast;
+    String _plot;
+    String _runtime;
+    String _format;
+    String _size;
+    String _location;
+    String _path;
+    String _lent_to;
+    String _image_url;
+    String _note;
+     
+    // Empty constructor
+    public Movie(){
+         
+    }
+    // constructor
+    public Movie(int id,
+    		String title,
+    		String release_date,
+    		String mpaa_rating,
+    		String genre,
+    		String cast,
+    		String plot,
+    		String runtime,
+    		String format,
+    		String size,
+    		String location,
+    		String path,
+    		String lent_to,
+    		String image_url,
+    		String note){
+        this._id = id;
+        this._title = title;
+        this._release_date = release_date;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        this._ = ;
+        
+    }
+     
+    // constructor
+    public Contact(String name, String _phone_number){
+        this._name = name;
+        this._phone_number = _phone_number;
+    }
+    // getting ID
+    public int getID(){
+        return this._id;
+    }
+     
+    // setting id
+    public void setID(int id){
+        this._id = id;
+    }
+     
+    // getting name
+    public String getName(){
+        return this._name;
+    }
+     
+    // setting name
+    public void setName(String name){
+        this._name = name;
+    }
+     
+    // getting phone number
+    public String getPhoneNumber(){
+        return this._phone_number;
+    }
+     
+    // setting phone number
+    public void setPhoneNumber(String phone_number){
+        this._phone_number = phone_number;
+    }
+}
