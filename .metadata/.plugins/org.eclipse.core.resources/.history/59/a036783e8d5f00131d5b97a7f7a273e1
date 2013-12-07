@@ -124,10 +124,7 @@ public class MainActivity extends FragmentActivity {
   View v = findViewById(R.id.phone_container);
   if(v == null){
    //it's run on tablet
-	  isSinglePane = false;
-  } else {
-	  isSinglePane = true;
-  }
+   isSinglePane = false;
    
    if(savedInstanceState == null){
 	    //if's the first time created
@@ -138,7 +135,21 @@ public class MainActivity extends FragmentActivity {
 	    
 
 	   }
- 
+   
+  }else{
+   //it's run on phone
+   //Load MyListFragment programmatically
+   isSinglePane = true;
+   
+   if(savedInstanceState == null){
+    //if's the first time created
+    MyListFragment myListFragment = new MyListFragment();
+    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+    fragmentTransaction.add(R.id.phone_container, myListFragment);
+    fragmentTransaction.commit();
+   }
+  }
+  
   DatabaseHandler db = new DatabaseHandler(this);
   
   /**
@@ -187,7 +198,7 @@ public class MainActivity extends FragmentActivity {
   Log.d("Movie: ", log);
 }
  }
-}
  
  
 
+}

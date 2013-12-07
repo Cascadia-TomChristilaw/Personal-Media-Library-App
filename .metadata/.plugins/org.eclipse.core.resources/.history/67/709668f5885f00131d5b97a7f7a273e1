@@ -25,12 +25,10 @@ public class MainActivity extends FragmentActivity {
  // if run on tablet, isSinglePane = false
  static boolean isSinglePane;
  
- 
+ static String[] options ={
+   "List Movies", "Add Movie"};
 
  public static class MyListFragment extends ListFragment {
-	 
-	 static String[] options ={
-		   "List Movies", "Add Movie"};
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
@@ -124,10 +122,7 @@ public class MainActivity extends FragmentActivity {
   View v = findViewById(R.id.phone_container);
   if(v == null){
    //it's run on tablet
-	  isSinglePane = false;
-  } else {
-	  isSinglePane = true;
-  }
+   isSinglePane = false;
    
    if(savedInstanceState == null){
 	    //if's the first time created
@@ -138,7 +133,21 @@ public class MainActivity extends FragmentActivity {
 	    
 
 	   }
- 
+   
+  }else{
+   //it's run on phone
+   //Load MyListFragment programmatically
+   isSinglePane = true;
+   
+   if(savedInstanceState == null){
+    //if's the first time created
+    MyListFragment myListFragment = new MyListFragment();
+    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+    fragmentTransaction.add(R.id.phone_container, myListFragment);
+    fragmentTransaction.commit();
+   }
+  }
+  
   DatabaseHandler db = new DatabaseHandler(this);
   
   /**
@@ -167,27 +176,27 @@ public class MainActivity extends FragmentActivity {
   List<Movie> movies = db.getAllMovies();       
    
   for (Movie mv : movies) {
-      String log = "Id: " + mv.getID()+
-    		  " ,Title: " + mv.getTitle() +
-    		  " ,Release Date: " + mv.getReleaseDate()+
-    		  " ,Year: " + mv.getYear()+
-    		  " ,MPAA Rating: " + mv.getMpaa()+
-    		  " ,Genre: " + mv.getGenre()+
-    		  " ,Cast: " + mv.getCast()+
-    		  " ,Plot: " + mv.getPlot()+
-    		  " ,Runtime: " + mv.getRuntime()+
-    		  " ,Format: " + mv.getFormat()+
-    		  " ,Size: " + mv.getSize()+
-    		  " ,Location: " + mv.getLocation()+
-    		  " ,Path: " + mv.getPath()+
-    		  " ,Lent To: " + mv.getLentTo()+
-    		  " ,Image URL: " + mv.getImageUrl()+
-    		  " ,Personal Note: " + mv.getNote();
+//      String log = "Id: " + mv.getID()+
+//    		  " ,Title: " + mv.getTitle() +
+//    		  " ,Release Date: " + mv.getReleaseDate()+
+//    		  " ,Year: " + mv.getYear()+
+//    		  " ,MPAA Rating: " + mv.getMpaa()+
+//    		  " ,Genre: " + mv.getGenre()+
+//    		  " ,Cast: " + mv.getCast()+
+//    		  " ,Plot: " + mv.getPlot()+
+//    		  " ,Runtime: " + mv.getRuntime()+
+//    		  " ,Format: " + mv.getFormat()+
+//    		  " ,Size: " + mv.getSize()+
+//    		  " ,Location: " + mv.getLocation()+
+//    		  " ,Path: " + mv.getPath()+
+//    		  " ,Lent To: " + mv.getLentTo()+
+//    		  " ,Image URL: " + mv.getImageUrl()+
+//    		  " ,Personal Note: " + mv.getNote();
   // Writing Contacts to log
-  Log.d("Movie: ", log);
+  Log.d("Movie: ", getString(mv));
 }
  }
-}
  
  
 
+}

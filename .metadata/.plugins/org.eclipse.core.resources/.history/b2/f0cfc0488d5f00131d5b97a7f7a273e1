@@ -133,12 +133,29 @@ public class MainActivity extends FragmentActivity {
 	    //if's the first time created
 	   MyListFragment myListFragment = new MyListFragment();
 	    FragmentTransaction listFragmentTransaction = getFragmentManager().beginTransaction();
-	    listFragmentTransaction.add(R.id.list_fragment_container, myListFragment);
-	    listFragmentTransaction.commit();
 	    
-
+	    if (isSinglePane == false) {
+	    	listFragmentTransaction.add(R.id.list_fragment_container, myListFragment);
+	    } else {
+	    	fragmentTransaction.add(R.id.phone_container, myListFragment);
+	    }
+	    listFragmentTransaction.commit();
 	   }
- 
+   
+//  }else{
+//   //it's run on phone
+//   //Load MyListFragment programmatically
+////   isSinglePane = true;
+//   
+//   if(savedInstanceState == null){
+//    //if's the first time created
+//    MyListFragment myListFragment = new MyListFragment();
+//    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//    fragmentTransaction.add(R.id.phone_container, myListFragment);
+//    fragmentTransaction.commit();
+//   }
+  }
+  
   DatabaseHandler db = new DatabaseHandler(this);
   
   /**
@@ -187,7 +204,7 @@ public class MainActivity extends FragmentActivity {
   Log.d("Movie: ", log);
 }
  }
-}
  
  
 
+}
