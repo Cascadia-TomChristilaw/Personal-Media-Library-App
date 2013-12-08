@@ -18,7 +18,9 @@ public class MainActivity extends FragmentActivity {
  // if run on phone, isSinglePane = true
  // if run on tablet, isSinglePane = false
  static boolean isSinglePane;
- 
+
+ Button titleSearchButton;
+
  public static class MyListFragment extends ListFragment {
 	 
 	 static String[] options ={
@@ -103,9 +105,22 @@ public class MainActivity extends FragmentActivity {
 	    listFragmentTransaction.commit();
 	    
 
-	}  
+	}   
+   
+   titleSearchButton = (Button) findViewById(R.id.titleSearchButton);
+   titleSearchButton.setOnClickListener(titleSearchButtonListener);
+
  }
  
+ OnClickListener titleSearchButtonListener = new OnClickListener() {
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		Log.d("SUCCESS!! ", "The search button has been clicked.");
+	}
+	 
+ };
 }
  
  
