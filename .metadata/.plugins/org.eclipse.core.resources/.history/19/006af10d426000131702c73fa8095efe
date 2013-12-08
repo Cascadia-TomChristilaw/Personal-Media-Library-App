@@ -1,0 +1,54 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import android.annotation.TargetApi;
+import android.app.Fragment;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+public class MyDetailFragment extends Fragment {
+	
+	Button titleSearchButton;
+	  
+	  LinearLayout detailContainer;
+
+	  @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+	@Override
+	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	    Bundle savedInstanceState) {
+		  View view = null;
+		  Bundle bundle = getArguments();
+		  String detail = bundle.getString("KEY_DETAIL", "no argument pass");
+
+		  if (detail.matches("List Movies")) {
+			  view = inflater.inflate(R.layout.layout_listmoviesfragment, null);
+		  }
+		  else if (detail.matches("Add Movie")) {
+			  view = inflater.inflate(R.layout.layout_addmoviefragment, null);	
+			  Intent intent = new Intent(this, AddMovieActivity.class);
+		  }
+		  
+		  titleSearchButton = (Button) getView().findViewById(R.id.titleSearchButton);
+		  titleSearchButton.setOnClickListener(titleSearchButtonListener);
+		  
+	    	return view;
+	   }
+	  
+	  OnClickListener titleSearchButtonListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View arg0) {
+			Log.d("Success!" , "button works...");
+			
+		}
+		  
+	  };
+
+	  }

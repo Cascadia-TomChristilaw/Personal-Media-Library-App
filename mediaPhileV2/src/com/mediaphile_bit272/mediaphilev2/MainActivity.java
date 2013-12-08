@@ -24,8 +24,6 @@ public class MainActivity extends FragmentActivity {
  // if run on phone, isSinglePane = true
  // if run on tablet, isSinglePane = false
  static boolean isSinglePane;
- 
- 
 
  public static class MyListFragment extends ListFragment {
 	 
@@ -45,31 +43,34 @@ public class MainActivity extends FragmentActivity {
  
   @Override
   public void onListItemClick(ListView l, View v, int position, long id) {
-   
-   String clickedDetail = (String)l.getItemAtPosition(position);
-   
-   
-	MyDetailFragment myDetailFragment = new MyDetailFragment();
-	Bundle bundle = new Bundle();
-	bundle.putString("KEY_DETAIL", clickedDetail);
-	myDetailFragment.setArguments(bundle);
-	FragmentTransaction fragmentTransaction =
-	  getActivity().getFragmentManager().beginTransaction();
-	
-	if(isSinglePane == true){
-	    /*
-	     * The second fragment not yet loaded. 
-	     * Load MyDetailFragment by FragmentTransaction, and pass 
-	     * data from current fragment to second fragment via bundle.
-	     */
-	fragmentTransaction.replace(R.id.phone_container, myDetailFragment);	
-	}else{
-		/*
-	     * Activity have two fragments. Pass data between fragments
-	     * via reference to fragment
-	     */
-		fragmentTransaction.replace(R.id.detail_fragment_container, myDetailFragment);
-	}	
+	  int fragmentContainer;
+	  
+	  if(isSinglePane){
+			fragmentContainer = R.id.phone_container;
+		 } else {
+			 fragmentContainer = R.id.detail_fragment_container;
+		 }
+		  
+	   String clickedDetail = (String)l.getItemAtPosition(position);
+	   FragmentTransaction fragmentTransaction = null;
+	   
+	   if (clickedDetail.matches("Add Movie")) {
+		   
+		   AddMovieFragment addMovie = new AddMovieFragment();
+		   fragmentTransaction =
+					  getActivity().getFragmentManager().beginTransaction();
+		   
+		   fragmentTransaction.replace(fragmentContainer, addMovie);
+		   
+	   } else if (clickedDetail.matches("List Movies")) {
+		   
+		   ListMoviesFragment listMovies = new ListMoviesFragment();
+		   fragmentTransaction =
+					  getActivity().getFragmentManager().beginTransaction();
+		   
+		   fragmentTransaction.replace(fragmentContainer, listMovies);
+	   }
+	   
 	fragmentTransaction.addToBackStack(null);
 	fragmentTransaction.commit();    
   }   
@@ -85,8 +86,8 @@ public class MainActivity extends FragmentActivity {
          Log.i("MainActivity", "nothing on backstack, calling super");
          super.onBackPressed();  
      }
- }
-
+ } 
+ 
  @Override
  protected void onCreate(Bundle savedInstanceState) {
   super.onCreate(savedInstanceState);

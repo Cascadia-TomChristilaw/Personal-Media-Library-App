@@ -1,0 +1,8 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import android.support.v4.app.FragmentActivity;
+
+public class AddMovieActivity extends FragmentActivity {
+	
+
+}

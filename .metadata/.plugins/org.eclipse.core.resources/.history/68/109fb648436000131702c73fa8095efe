@@ -1,0 +1,14 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import android.support.v4.app.FragmentActivity;
+import android.widget.Button;
+
+public class AddMovieActivity extends FragmentActivity {
+	Button titleSearchButton;
+	
+	protected void onStart() {
+		titleSearchButton = (Button) findViewById(R.id.titleSearchButton);
+		 titleSearchButton.setOnClickListener(titleSearchButtonListener);
+	}
+
+}
