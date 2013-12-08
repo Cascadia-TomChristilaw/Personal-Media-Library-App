@@ -126,9 +126,9 @@ public class RestHandler {
 		HttpContext localContext = new BasicHttpContext();
 		HttpGet httpGet;
 		if (search) {
-			httpGet = new HttpGet("http://www.omdbapi.com/?s=" + movie);
+			httpGet = new HttpGet("http://www.pmbapi.com/?s=" + movie);
 		} else {
-			httpGet = new HttpGet("http://www.omdbapi.com/?t=" + movie);
+			httpGet = new HttpGet("http://www.pmbapi.com/?t=" + movie);
 		}
 		String text = null;
 		try {
