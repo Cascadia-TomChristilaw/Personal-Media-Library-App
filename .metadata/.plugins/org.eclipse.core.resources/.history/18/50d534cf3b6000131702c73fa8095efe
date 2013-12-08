@@ -86,6 +86,35 @@ public class MainActivity extends FragmentActivity {
          super.onBackPressed();  
      }
  }
+ 
+ public static class MyDetailFragment extends Fragment {
+  
+  LinearLayout detailContainer;
+
+  @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+@Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    Bundle savedInstanceState) {
+	  View view = null;
+	  Bundle bundle = getArguments();
+	  String detail = bundle.getString("KEY_DETAIL", "no argument pass");
+
+	  if (detail.matches("List Movies")) {
+		  view = inflater.inflate(R.layout.layout_detailfragment, null);
+	  }
+	  else if (detail.matches("Add Movie")) {
+		  view = inflater.inflate(R.layout.layout_addmoviefragment, null);
+	  }
+    	return view;
+   }
+
+  }
+ 
+ 
+
+  
+
+ 
 
  @Override
  protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +186,7 @@ public class MainActivity extends FragmentActivity {
 //  // Writing Contacts to log
 //  Log.d("Movie: ", log);
 //}
- }
+// }
 }
  
  

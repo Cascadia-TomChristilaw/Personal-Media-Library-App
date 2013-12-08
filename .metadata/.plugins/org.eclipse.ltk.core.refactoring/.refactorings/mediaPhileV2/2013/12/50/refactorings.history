@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;mediaPhileV2/res/layout/layout_detailfragment.xml&apos; to &apos;layout_listmoviesfragment.xml&apos;" description="Rename resource &apos;layout_detailfragment.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/layout_detailfragment.xml" name="layout_listmoviesfragment.xml" stamp="1386529766434" updateReferences="true"/>
+</session>
