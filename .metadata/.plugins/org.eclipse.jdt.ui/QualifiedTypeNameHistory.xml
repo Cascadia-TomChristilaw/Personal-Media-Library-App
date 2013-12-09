@@ -5,7 +5,8 @@
 <fullyQualifiedTypeName name="android.app.FragmentManager"/>
 <fullyQualifiedTypeName name="com.mediaphile_bit272.mediaphilev2.AddMovieActivity"/>
 <fullyQualifiedTypeName name="android.app.Fragment"/>
-<fullyQualifiedTypeName name="com.mediaphile_bit272.mediaphilev2.R.id"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="com.mediaphile_bit272.mediaphilev2.MainActivity"/>
+<fullyQualifiedTypeName name="com.mediaphile_bit272.mediaphilev2.R.id"/>
 </qualifiedTypeNameHistroy>
