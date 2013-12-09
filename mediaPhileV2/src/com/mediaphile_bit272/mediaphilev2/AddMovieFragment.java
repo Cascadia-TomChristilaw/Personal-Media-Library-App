@@ -18,6 +18,17 @@ public class AddMovieFragment extends Fragment {
 	EditText movieTitleEditText;
 	Button titleSearchButton;
 	Button saveMovieButton;
+	EditText releasedEditText;
+	EditText mpaaRatingEditText;
+	EditText genreEditText;
+	EditText runtimeEditText;
+	EditText castEditText;
+	EditText plotEditText;
+	EditText imageUrlEditText;
+	EditText formatEditText;
+	EditText fileSizeEditText;
+	EditText pathEditText;
+	EditText personalNoteEditText;
 	
 	String[] matrixSearchResults = {"The Matrix (1999)", "The Matrix Reloaded (2003)", "The Matrix Revolutions (2003)", "The Matrix Revisited (2001)", "Armitage III: Poly Matrix (1997)"};
 	
@@ -50,6 +61,9 @@ public class AddMovieFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				
+				
 				Log.d("SUCCESS!! ", "The save movie button has been clicked.");
 			}
 			 
@@ -75,5 +89,7 @@ public class AddMovieFragment extends Fragment {
 		 Log.d("ACTIVITY!! ", "The AddMovieFragment activity has been created.");
 		 
 	 }
+	 
+
 	 
 }

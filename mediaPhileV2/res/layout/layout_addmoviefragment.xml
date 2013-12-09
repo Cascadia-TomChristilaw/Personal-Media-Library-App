@@ -8,7 +8,7 @@
 
 	<TableLayout
 	    android:layout_width="fill_parent"
-	    android:layout_height="match_parent"
+	    android:layout_height="wrap_content"
 	    android:scaleType="fitXY" >
 		
 		<TableRow
@@ -26,7 +26,7 @@
 		        android:gravity="center_horizontal"
 		        android:paddingBottom="5dp"
 		        android:paddingTop="5dp"
-		        android:text="Add Movie"
+		        android:text="@string/addMovie"
 		        android:textColor="#555"
 		        android:textSize="20sp"
 		        android:textStyle="bold" />
@@ -37,6 +37,7 @@
 		    android:id="@+id/movieTitleTableRow"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
 		    android:paddingLeft="5dp"
 		    android:paddingRight="5dp" >
 		
@@ -44,9 +45,9 @@
 		        android:id="@+id/movieTitleEditText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
 		        android:layout_span="3"
-		        android:hint="Enter Title Text"
+		        android:layout_weight="1"
+		        android:hint="@string/enterTitleHint"
 		        android:inputType="text"
 		        android:textSize="15sp" >
 		
@@ -58,47 +59,65 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_marginLeft="5dp"
-		        android:text="Search" />
-	
-		    
-		    
+		        android:text="@string/search" />
 		
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow0"
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
-		    <TextView
-		        android:id="@+id/releaseDateTextView"
-		        android:layout_width="wrap_content"
+		    
+
+		    
+
+		    <LinearLayout
+		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:text="Release Date" />
+		        android:orientation="horizontal"
+		        android:weightSum="100" >
 
-		    <EditText
-		        android:id="@+id/releaseDateEditText"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginLeft="-50dp"
-		        android:layout_span="1"
-		        android:layout_weight="1"
-		        android:inputType="text" />
+			    <TextView
+			        android:id="@+id/releaseDateTextView"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="10"
+			        android:text="@string/releaseDate"
+			        android:textSize="16sp"
+			        android:textStyle="bold" />
+	
+				<EditText
+				    android:id="@+id/releasedEditText"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="90"
+				    android:inputType="text" />
+			</LinearLayout>
+
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow1"
 		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 		    <TextView
 		        android:id="@+id/mpaaRatingTextView"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
+		        android:layout_weight="2"
 		        android:gravity="center_horizontal"
-		        android:text="Rated" />
+		        android:text="@string/rated"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
 
 		    <TextView
 		        android:id="@+id/genreTextView"
@@ -106,7 +125,9 @@
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
 		        android:gravity="center_horizontal"
-		        android:text="Genre" />
+		        android:text="@string/genre"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
 
 		    <TextView
 		        android:id="@+id/runtimeTextView"
@@ -114,19 +135,25 @@
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
 		        android:gravity="center_horizontal"
-		        android:text="Runtime" />
+		        android:text="@string/runtime"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow2"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 		    <EditText
 		        android:id="@+id/mpaaRatingEditText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
+		        android:layout_weight="2"
 		        android:ems="10"
 		        android:inputType="text" />
 
@@ -150,21 +177,29 @@
 		<TableRow
 		    android:id="@+id/tableRow3"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<TextView
 			    android:id="@+id/castTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:text="@string/cast" />
+			    android:text="@string/cast"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
 
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow4"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<EditText
 			    android:id="@+id/castEditText"
@@ -179,20 +214,28 @@
 		<TableRow
 		    android:id="@+id/tableRow5"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<TextView
 			    android:id="@+id/plotTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:text="Plot" />
+			    android:text="@string/plot"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
 
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow6"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<EditText
 			    android:id="@+id/plotEditText"
@@ -206,39 +249,56 @@
 
 		<TableRow
 		    android:id="@+id/tableRow7"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
-			<TextView
-			    android:id="@+id/imageUrlTextView"
-			    android:layout_width="wrap_content"
+			<LinearLayout
+			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:text="Image URL" />
+			    android:weightSum="100" >
 
-			<EditText
-			    android:id="@+id/imageUrlEditText"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-		        android:layout_marginLeft="-50dp"
-			    android:layout_weight="1"
-			    android:ems="10"
-			    android:layout_span="1" />
+			    <TextView
+			        android:id="@+id/imageUrlTextView"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="10"
+			        android:text="@string/imageUrl"
+			        android:textSize="16sp"
+			        android:textStyle="bold" />
+
+			    <EditText
+			        android:id="@+id/imageUrlEditText"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="90"
+			        android:ems="10"
+			        android:inputType="text|textUri" />
+
+			</LinearLayout>
 
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow8"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<TextView
 			    android:id="@+id/formatTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
+			    android:layout_weight="2"
 			    android:gravity="center"
-			    android:text="Format" />
+			    android:text="@string/format"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
 
 			<TextView
 			    android:id="@+id/fileSizeTextView"
@@ -246,7 +306,9 @@
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
 			    android:gravity="center"
-			    android:text="File Size" />
+			    android:text="@string/fileSize"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
 
 			<TextView
 			    android:id="@+id/pathTextView"
@@ -254,55 +316,71 @@
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
 			    android:gravity="center"
-			    android:text="Path" />
+			    android:text="@string/path"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
 
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow9"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<EditText
 			    android:id="@+id/formatEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
-			    android:ems="10" />
+			    android:layout_weight="2"
+			    android:ems="10"
+			    android:inputType="text" />
 
 			<EditText
 			    android:id="@+id/fileSizeEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:ems="10" />
+			    android:ems="10"
+			    android:inputType="text" />
 
 			<EditText
 			    android:id="@+id/pathEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:ems="10" />
+			    android:ems="10"
+			    android:inputType="text" />
 
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow10"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 
 			<TextView
 			    android:id="@+id/personalNoteTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:text="Personal Note" />
+			    android:text="@string/personalNote"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
 
 		</TableRow>
 
 		<TableRow
 		    android:id="@+id/tableRow11"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
 			
 		    <EditText
 			    android:id="@+id/personalNoteEditText"
@@ -316,14 +394,15 @@
 		<TableRow
 		    android:id="@+id/tableRow12"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content" >
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp" >
 
 			<Button
 			    android:id="@+id/saveMovieButton"
 			    android:layout_width="fill_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:text="Save Movie" />
+			    android:text="@string/saveMovie" />
 
 		</TableRow>
 

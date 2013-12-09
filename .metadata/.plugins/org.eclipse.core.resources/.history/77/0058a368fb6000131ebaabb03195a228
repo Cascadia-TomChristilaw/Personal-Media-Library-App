@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbars="none" >
+
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:scaleType="fitXY" >
+		
+		<TableRow
+		    android:id="@+id/addMovieTitleTableRow"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1" >
+		
+		    <TextView
+		        android:id="@+id/addMovieTitleTextView"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:background="#edd400"
+		        android:gravity="center_horizontal"
+		        android:paddingBottom="5dp"
+		        android:paddingTop="5dp"
+		        android:text="Add Movie"
+		        android:textColor="#555"
+		        android:textSize="20sp"
+		        android:textStyle="bold" />
+		
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/movieTitleTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+		
+		    <EditText
+		        android:id="@+id/movieTitleEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_span="3"
+		        android:layout_weight="1"
+		        android:hint="@string/enterTitleHint"
+		        android:inputType="text"
+		        android:textSize="15sp" >
+		
+		        <requestFocus />
+		    </EditText>
+		
+		    <Button
+		        android:id="@+id/titleSearchButton"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		        android:text="@string/search" />
+		
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow0"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp"
+		    android:weightSum="100" >
+
+		    <TextView
+		        android:id="@+id/releaseDateTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="5"
+		        android:text="@string/releaseDate"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		    <EditText
+		        android:id="@+id/releasedEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_span="1"
+		        android:layout_weight="95"
+		        android:inputType="text" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow1"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+		    <TextView
+		        android:id="@+id/mpaaRatingTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="@string/rated"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		    <TextView
+		        android:id="@+id/genreTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="@string/genre"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		    <TextView
+		        android:id="@+id/runtimeTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="@string/runtime"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+		    <EditText
+		        android:id="@+id/mpaaRatingEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="10"
+		        android:inputType="text" />
+
+		    <EditText
+		        android:id="@+id/genreEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="10"
+		        android:inputType="text" />
+
+		    <EditText
+		        android:id="@+id/runtimeEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:ems="10"
+		        android:inputType="text" />
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/castTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:text="@string/cast"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow4"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<EditText
+			    android:id="@+id/castEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="textMultiLine" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow5"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/plotTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/plot"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow6"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<EditText
+			    android:id="@+id/plotEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="textMultiLine" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow7"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/imageUrlTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="5"
+			    android:text="@string/imageUrl"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+			<EditText
+			    android:id="@+id/imageUrlEditText"
+			    android:layout_height="wrap_content"
+			    android:layout_span="1"
+			    android:layout_weight="95"
+			    android:ems="10"
+			    android:inputType="text|textUri" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow8"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/formatTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:text="@string/format"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+			<TextView
+			    android:id="@+id/fileSizeTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:text="@string/fileSize"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+			<TextView
+			    android:id="@+id/pathTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:text="@string/path"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow9"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<EditText
+			    android:id="@+id/formatEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="text" />
+
+			<EditText
+			    android:id="@+id/fileSizeEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="text" />
+
+			<EditText
+			    android:id="@+id/pathEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="text" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow10"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/personalNoteTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/personalNote"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow11"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+			
+		    <EditText
+			    android:id="@+id/personalNoteEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:ems="10"
+			    android:inputType="textMultiLine" />
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/tableRow12"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp" >
+
+			<Button
+			    android:id="@+id/saveMovieButton"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:text="@string/saveMovie" />
+
+		</TableRow>
+
+	 </TableLayout>
+</ScrollView>

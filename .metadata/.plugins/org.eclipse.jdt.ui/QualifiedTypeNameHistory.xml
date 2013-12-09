@@ -9,4 +9,6 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.mediaphile_bit272.mediaphilev2.MainActivity"/>
 <fullyQualifiedTypeName name="com.mediaphile_bit272.mediaphilev2.R.id"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
+<fullyQualifiedTypeName name="org.apache.http.util.EntityUtils"/>
 </qualifiedTypeNameHistroy>
