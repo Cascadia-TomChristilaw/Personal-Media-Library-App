@@ -62,10 +62,10 @@ public class MainActivity extends FragmentActivity {
 		   fragmentTransaction =
 					  getActivity().getFragmentManager().beginTransaction();
 		   
-		   fragmentTransaction.replace(fragmentContainer, listMovies);		   
-	   }
-	   fragmentTransaction.addToBackStack(null);
-	   fragmentTransaction.commit();    
+		   fragmentTransaction.replace(fragmentContainer, listMovies);
+		   fragmentTransaction.addToBackStack(null);
+	   }	
+	fragmentTransaction.commit();    
   }   
  }
  
@@ -98,11 +98,7 @@ public class MainActivity extends FragmentActivity {
 	    //if's the first time created
 	   MyListFragment myListFragment = new MyListFragment();
 	    FragmentTransaction listFragmentTransaction = getFragmentManager().beginTransaction();
-	    if (isSinglePane) {
-	    	listFragmentTransaction.add(R.id.phone_container, myListFragment);
-	    } else {
-	    	listFragmentTransaction.add(R.id.list_fragment_container, myListFragment);
-	    }
+	    listFragmentTransaction.add(R.id.list_fragment_container, myListFragment);
 	    listFragmentTransaction.commit();
 	    
 
