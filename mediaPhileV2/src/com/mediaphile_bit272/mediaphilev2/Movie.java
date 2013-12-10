@@ -93,6 +93,35 @@ public class Movie {
         this._note = note;
     }
     
+ // constructor
+    public Movie(String title,
+    		String release_date,
+    		String year,
+    		String mpaa_rating,
+    		String genre,
+    		String cast,
+    		String plot,
+    		String runtime,
+    		String format,
+    		String size,
+    		String path,
+    		String image_url,
+    		String note){
+        this._title = title;
+        this._release_date = release_date;
+        this._year = year;
+        this._mpaa_rating = mpaa_rating;
+        this._genre = genre;
+        this._cast = cast;
+        this._plot = plot;
+        this._runtime = runtime;
+        this._format = format;
+        this._size = size;
+        this._path = path;
+        this._image_url = image_url;
+        this._note = note;
+    }
+    
     //Constructor for JSON parsing
     public Movie(String title,
     		String release_date,

@@ -62,7 +62,14 @@ public class AddMovieFragment extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
+				DatabaseHandler db = new DatabaseHandler(getView().getContext());
 				
+				Movie movieToSave = new Movie(movieTitleEditText.getText().toString(), releasedEditText.getText().toString(), releasedEditText.getText().toString().split(" ")[3],
+						mpaaRatingEditText.getText().toString(), genreEditText.getText().toString(), castEditText.getText().toString(), 
+						plotEditText.getText().toString(), runtimeEditText.getText().toString(), formatEditText.getText().toString(),
+						fileSizeEditText.getText().toString(), pathEditText.getText().toString(), imageUrlEditText.getText().toString(),
+						personalNoteEditText.getText().toString());
+				db.addMovie(movieToSave);
 				
 				Log.d("SUCCESS!! ", "The save movie button has been clicked.");
 			}
@@ -80,6 +87,18 @@ public class AddMovieFragment extends Fragment {
 		 super.onActivityCreated(savedInstanceState);
 		 
 		 movieTitleEditText = (EditText) getView().findViewById(R.id.movieTitleEditText);
+		 releasedEditText = (EditText) getView().findViewById(R.id.releasedEditText);
+		 mpaaRatingEditText = (EditText) getView().findViewById(R.id.mpaaRatingEditText);
+		 genreEditText = (EditText) getView().findViewById(R.id.genreEditText);
+		 runtimeEditText = (EditText) getView().findViewById(R.id.runtimeEditText);
+		 castEditText = (EditText) getView().findViewById(R.id.castEditText);
+		 plotEditText = (EditText) getView().findViewById(R.id.plotEditText);
+		 imageUrlEditText = (EditText) getView().findViewById(R.id.imageUrlEditText);
+		 formatEditText = (EditText) getView().findViewById(R.id.formatEditText);
+		 fileSizeEditText = (EditText) getView().findViewById(R.id.fileSizeEditText);
+		 pathEditText = (EditText) getView().findViewById(R.id.pathEditText);
+		 personalNoteEditText = (EditText) getView().findViewById(R.id.personalNoteEditText);
+		 
 		 titleSearchButton = (Button) getView().findViewById(R.id.titleSearchButton);
 		 titleSearchButton.setOnClickListener(titleSearchButtonListener);
 		 
