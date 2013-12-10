@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ListMediaFragment extends Fragment {
@@ -58,11 +57,10 @@ public class ListMediaFragment extends Fragment {
 		 expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+            public Void onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 //Nothing here ever fires
                 System.err.println("child clicked");
-                Toast.makeText(getView().getContext(), "You clicked a movie", Toast.LENGTH_SHORT).show();
-                return true;
+                Toast.makeText(getView().getContext(), "child clicked", Toast.LENGTH_SHORT).show();
             }
         });
 		 
