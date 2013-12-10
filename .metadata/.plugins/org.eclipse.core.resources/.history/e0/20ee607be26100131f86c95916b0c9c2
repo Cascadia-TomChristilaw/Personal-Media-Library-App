@@ -2,6 +2,7 @@ package com.mediaphile_bit272.mediaphilev2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -10,8 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ListMediaFragment extends Fragment {
@@ -62,7 +61,8 @@ public class ListMediaFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 //Nothing here ever fires
                 System.err.println("child clicked");
-                Toast.makeText(getView().getContext(), ((TextView) ((LinearLayout )v).getChildAt(childPosition)).getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getView().getContext(), (String)((Map<String, String>)
+                        adapter.getChild(groupPosition, childPosition)), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

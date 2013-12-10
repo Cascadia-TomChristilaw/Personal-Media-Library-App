@@ -62,7 +62,7 @@ public class ListMediaFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 //Nothing here ever fires
                 System.err.println("child clicked");
-                Toast.makeText(getView().getContext(), ((TextView) ((LinearLayout )v).getChildAt(childPosition)).getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getView().getContext(), (TextView)((LinearLayout )v).getChildAt(childPosition), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
