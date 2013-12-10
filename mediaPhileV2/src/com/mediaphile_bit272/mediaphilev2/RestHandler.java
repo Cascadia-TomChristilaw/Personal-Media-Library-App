@@ -20,11 +20,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 /*
- * To make this class work you must implement the interface MovieMaker and TitleMaker in the class that you want to call, probably in the main class. 
+ * To make this class work you must implement the interface MovieMaker and TitleMaker in the class
+ * that you want to call, probably in the main class. 
  * 
- * Import this package as well, "import com.mediaphile_bit272.mediaphiev2;"
+ * Import this package as well, "import com.mediaphile_bit272.mediaphilev2;"
  * 
- * After you implement both MovieMaker and TitleMaker you must @Override the methods, onMovieMade for MovieMaker and onArrayMade for TitleMaker
+ * After you implement both MovieMaker and TitleMaker you must @Override the methods,
+ * onMovieMade for MovieMaker and onArrayMade for TitleMaker
  * 
  * In the class that you want to call the RestHandler in you must start the listeners with 
  * 

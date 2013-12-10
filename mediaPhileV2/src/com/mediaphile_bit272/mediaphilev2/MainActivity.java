@@ -22,7 +22,7 @@ public class MainActivity extends FragmentActivity {
  public static class MyListFragment extends ListFragment {
 	 
 	 static String[] options ={
-		   "List Movies", "Add Movie"};
+		   "List Media", "Add Movie"};
 
   @Override
   public void onActivityCreated(Bundle savedInstanceState) {
@@ -56,9 +56,9 @@ public class MainActivity extends FragmentActivity {
 		   
 		   fragmentTransaction.replace(fragmentContainer, addMovie);
 		   
-	   } else if (clickedDetail.matches("List Movies")) {
+	   } else if (clickedDetail.matches("List Media")) {
 		   
-		   ListMoviesFragment listMovies = new ListMoviesFragment();
+		   ListMediaFragment listMovies = new ListMediaFragment();
 		   fragmentTransaction =
 					  getActivity().getFragmentManager().beginTransaction();
 		   

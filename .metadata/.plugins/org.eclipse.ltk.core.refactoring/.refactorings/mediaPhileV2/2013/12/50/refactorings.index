@@ -18,3 +18,5 @@
 1386610176372	Extracts string 'null' into R.string.PersonalNote
 1386610246423	Extracts string 'null' into R.string.saveMovie
 1386612904590	Extracts string 'null' into R.string.addMovie
+1386704482408	Rename type 'ListMoviesFragment'
+1386704498785	Rename resource 'layout_listmoviesfragment.xml'

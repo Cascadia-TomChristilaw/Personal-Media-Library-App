@@ -28,7 +28,7 @@ public class AddMovieFragment extends Fragment {
 	EditText formatEditText;
 	EditText fileSizeEditText;
 	EditText pathEditText;
-	EditText personalNoteEditText;
+	EditText personalNoteEditText;	
 	
 	String[] matrixSearchResults = {"The Matrix (1999)", "The Matrix Reloaded (2003)", "The Matrix Revolutions (2003)", "The Matrix Revisited (2001)", "Armitage III: Poly Matrix (1997)"};
 	
@@ -40,7 +40,6 @@ public class AddMovieFragment extends Fragment {
 	
 	OnClickListener titleSearchButtonListener = new OnClickListener() {
 		@Override  public void onClick(View v) {
-			
 			String searchString = movieTitleEditText.getText().toString();
 			
 			Toast.makeText(getActivity(), "Your search string is " + searchString, Toast.LENGTH_LONG).show();
@@ -64,7 +63,7 @@ public class AddMovieFragment extends Fragment {
 				
 				DatabaseHandler db = new DatabaseHandler(getView().getContext());
 				
-				Movie movieToSave = new Movie(movieTitleEditText.getText().toString(), releasedEditText.getText().toString(), releasedEditText.getText().toString().split(" ")[3],
+				Movie movieToSave = new Movie(movieTitleEditText.getText().toString(), releasedEditText.getText().toString(), releasedEditText.getText().toString().split(" ")[2],
 						mpaaRatingEditText.getText().toString(), genreEditText.getText().toString(), castEditText.getText().toString(), 
 						plotEditText.getText().toString(), runtimeEditText.getText().toString(), formatEditText.getText().toString(),
 						fileSizeEditText.getText().toString(), pathEditText.getText().toString(), imageUrlEditText.getText().toString(),
