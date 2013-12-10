@@ -36,7 +36,7 @@ public class AddMovieFragment extends Fragment {
 			"1999", "R", "Action, Adventure, Sci-Fi",
 			"Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving",
 			"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-			"2 h 16 min");
+			"2 h 16 min", "http://ia.media-imdb.com/images/M/MV5BMjEzNjg1NTg2NV5BMl5BanBnXkFtZTYwNjY3MzQ5._V1_SX300.jpg");
 	
 	OnClickListener titleSearchButtonListener = new OnClickListener() {
 		@Override  public void onClick(View v) {
@@ -66,7 +66,7 @@ public class AddMovieFragment extends Fragment {
 				Movie movieToSave = new Movie(movieTitleEditText.getText().toString(), releasedEditText.getText().toString(), releasedEditText.getText().toString().split(" ")[2],
 						mpaaRatingEditText.getText().toString(), genreEditText.getText().toString(), castEditText.getText().toString(), 
 						plotEditText.getText().toString(), runtimeEditText.getText().toString(), formatEditText.getText().toString(),
-						fileSizeEditText.getText().toString(), pathEditText.getText().toString(),
+						fileSizeEditText.getText().toString(), pathEditText.getText().toString(), imageUrlEditText.getText().toString(),
 						personalNoteEditText.getText().toString());
 				db.addMovie(movieToSave);
 				
@@ -92,7 +92,7 @@ public class AddMovieFragment extends Fragment {
 		 runtimeEditText = (EditText) getView().findViewById(R.id.runtimeEditText);
 		 castEditText = (EditText) getView().findViewById(R.id.castEditText);
 		 plotEditText = (EditText) getView().findViewById(R.id.plotEditText);
-//		 imageUrlEditText = (EditText) getView().findViewById(R.id.imageUrlEditText);
+		 imageUrlEditText = (EditText) getView().findViewById(R.id.imageUrlEditText);
 		 formatEditText = (EditText) getView().findViewById(R.id.formatEditText);
 		 fileSizeEditText = (EditText) getView().findViewById(R.id.fileSizeEditText);
 		 pathEditText = (EditText) getView().findViewById(R.id.pathEditText);

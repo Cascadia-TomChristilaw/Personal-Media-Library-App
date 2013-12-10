@@ -105,6 +105,7 @@ public class Movie {
     		String format,
     		String size,
     		String path,
+    		String image_url,
     		String note){
         this._title = title;
         this._release_date = release_date;
@@ -117,7 +118,7 @@ public class Movie {
         this._format = format;
         this._size = size;
         this._path = path;
-//        this._image_url = image_url;
+        this._image_url = image_url;
         this._note = note;
     }
     
@@ -129,7 +130,8 @@ public class Movie {
     		String genre,
     		String cast,
     		String plot,
-    		String runtime){
+    		String runtime,
+    		String image_url){
     	this._title = title;
     	this._release_date = release_date;
     	this._year = year;
@@ -138,7 +140,7 @@ public class Movie {
     	this._cast = cast;
     	this._plot = plot;
     	this._runtime = runtime;
-//    	this._image_url = image_url;
+    	this._image_url = image_url;
     }
     
     // getting ID

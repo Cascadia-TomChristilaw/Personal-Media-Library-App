@@ -113,7 +113,7 @@
 		        android:id="@+id/mpaaRatingTextView"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
+		        android:layout_weight="2"
 		        android:gravity="center_horizontal"
 		        android:text="@string/rated"
 		        android:textSize="16sp"
@@ -153,7 +153,7 @@
 		        android:id="@+id/mpaaRatingEditText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
+		        android:layout_weight="2"
 		        android:ems="10"
 		        android:inputType="text" />
 
@@ -294,7 +294,7 @@
 			    android:id="@+id/formatTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
+			    android:layout_weight="2"
 			    android:gravity="center"
 			    android:text="@string/format"
 			    android:textSize="16sp"
@@ -334,7 +334,7 @@
 			    android:id="@+id/formatEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
+			    android:layout_weight="2"
 			    android:ems="10"
 			    android:inputType="text" />
 

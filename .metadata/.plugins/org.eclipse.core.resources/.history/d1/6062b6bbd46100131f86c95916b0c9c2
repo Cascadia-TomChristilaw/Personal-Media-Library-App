@@ -175,7 +175,7 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 			cast = toBeHandled.getString("Actors");
 			plot = toBeHandled.getString("Plot");
 			runtime = toBeHandled.getString("Runtime");
-//			image_url = toBeHandled.getString("Poster");
+			image_url = toBeHandled.getString("Poster");
 			Log.v("JsonObject:", " Handled!");
 
 		} catch (JSONException e) {

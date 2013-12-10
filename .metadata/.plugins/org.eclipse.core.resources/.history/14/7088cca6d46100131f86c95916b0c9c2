@@ -117,7 +117,7 @@ public class Movie {
         this._format = format;
         this._size = size;
         this._path = path;
-//        this._image_url = image_url;
+        this._image_url = image_url;
         this._note = note;
     }
     

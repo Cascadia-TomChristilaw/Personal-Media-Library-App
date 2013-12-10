@@ -162,7 +162,7 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 		String cast = null;
 		String plot = null;
 		String runtime = null;
-//		String image_url = null;
+		String image_url = null;
 
 		// Start JSON handling
 		try {
@@ -175,7 +175,7 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 			cast = toBeHandled.getString("Actors");
 			plot = toBeHandled.getString("Plot");
 			runtime = toBeHandled.getString("Runtime");
-//			image_url = toBeHandled.getString("Poster");
+			image_url = toBeHandled.getString("Poster");
 			Log.v("JsonObject:", " Handled!");
 
 		} catch (JSONException e) {
@@ -184,7 +184,7 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 		}// end
 			// Create new movie and populate it's fields.
 		Movie toReturn = new Movie(title, release_date, year, mpaa_rating,
-				genre, cast, plot, runtime);
+				genre, cast, plot, runtime, image_url);
 		// Send the movie to the movie handler
 		_mm.onMovieMade(toReturn);
 	}
