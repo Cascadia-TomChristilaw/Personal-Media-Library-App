@@ -76,9 +76,8 @@
 		        android:id="@+id/displayMpaaRatingTextView"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
-		        android:ems="20"
 		        android:gravity="center_horizontal"
+		        android:layout_column="0"
 		        android:text="@string/rated"
 		        android:textSize="16sp"
 		        android:textStyle="bold" />
@@ -88,7 +87,6 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:ems="20"
 		        android:gravity="center_horizontal"
 		        android:text="@string/genre"
 		        android:textSize="16sp"
@@ -99,7 +97,6 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:ems="20"
 		        android:gravity="center_horizontal"
 		        android:text="@string/runtime"
 		        android:textSize="16sp"
@@ -119,8 +116,7 @@
 		        android:id="@+id/movieMpaaRatingEditText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:layout_weight="1"
-		        android:ems="20"
+		        android:layout_column="0"
 		        android:gravity="center_horizontal"
 		        android:text="rating" />
 
@@ -129,7 +125,6 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:ems="20"
 		        android:gravity="center_horizontal"
 		        android:text="genre" />
 
@@ -138,7 +133,6 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:ems="20"
 		        android:gravity="center_horizontal"
 		        android:text="runtime" />
 
@@ -227,8 +221,7 @@
 			    android:id="@+id/displayFormatTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
-		        android:ems="20"
+		        android:layout_column="0"
 			    android:gravity="center_horizontal"
 			    android:text="@string/format"
 			    android:textSize="16sp"
@@ -239,7 +232,6 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-		        android:ems="20"
 			    android:gravity="center_horizontal"
 			    android:text="@string/fileSize"
 			    android:textSize="16sp"
@@ -250,7 +242,6 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-		        android:ems="20"
 			    android:gravity="center_horizontal"
 			    android:text="@string/path"
 			    android:textSize="16sp"
@@ -270,8 +261,7 @@
 			    android:id="@+id/movieFormatEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:layout_weight="1"
-		        android:ems="20"
+		        android:layout_column="0"
 			    android:gravity="center_horizontal"
 			    android:text="format" />
 
@@ -280,7 +270,6 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-		        android:ems="20"
 			    android:gravity="center_horizontal"
 			    android:text="file size" />
 
@@ -289,7 +278,6 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-		        android:ems="20"
 			    android:gravity="center_horizontal"
 			    android:text="path" />
 

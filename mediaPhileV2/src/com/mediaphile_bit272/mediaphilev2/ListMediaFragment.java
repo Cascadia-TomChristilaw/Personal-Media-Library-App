@@ -57,7 +57,7 @@ public class ListMediaFragment extends Fragment {
 	 public void onActivityCreated(Bundle savedInstanceState) {
 		 super.onActivityCreated(savedInstanceState);	
 		 
-		 View v = getView().findViewById(R.id.phone_container);
+		 View v = getActivity().findViewById(R.id.phone_container);
 		  if(v == null){
 		   //it's run on tablet
 			  isSinglePane = false;
