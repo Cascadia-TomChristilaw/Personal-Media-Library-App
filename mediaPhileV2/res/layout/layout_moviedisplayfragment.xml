@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbars="none" >
+
+	<TableLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:scaleType="fitXY" >
+
+		<TableRow
+		    android:id="@+id/movieTitle"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
+
+			<TextView
+			    android:id="@+id/movieTitleTextView"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:paddingBottom="8dp"
+			    android:paddingTop="8dp"
+			    android:text="Movie Title"
+			    android:textSize="25sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/rgrHeadingsTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" >
+			
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:orientation="horizontal"
+		        android:weightSum="100" >
+
+			    <TextView
+			        android:id="@+id/displayReleasedTextView"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="10"
+			        android:text="@string/releaseDate"
+			        android:textSize="16sp"
+			        android:textStyle="bold" />
+	
+				<TextView
+				    android:id="@+id/movieReleasedTextView"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_weight="90" />
+			</LinearLayout>
+			
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/rgrHeadingsTableRow"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+		    <TextView
+		        android:id="@+id/displayMpaaRatingTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:text="@string/rated"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		    <TextView
+		        android:id="@+id/displayGenreTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="@string/genre"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		    <TextView
+		        android:id="@+id/displayRuntimeTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center_horizontal"
+		        android:text="@string/runtime"
+		        android:textSize="16sp"
+		        android:textStyle="bold" />
+
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/rgrValuesTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+		    <TextView
+		        android:id="@+id/movieMpaaRatingEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center"
+		        android:text="rating" />
+
+		    <TextView
+		        android:id="@+id/movieGenreEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center"
+		        android:text="genre" />
+
+		    <TextView
+		        android:id="@+id/movieRuntimeEditText"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center"
+		        android:text="runtime" />
+
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/castHeadingTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/displayCastTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:text="@string/cast"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/castValueTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/movieCastTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1" />
+
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/plotHeadingTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/displayPlotTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/plot"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/plotValueTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/moviePlotTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1" />
+
+		</TableRow>
+		
+		<TableRow
+		    android:id="@+id/ffpHeadingsTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/displayFormatTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:gravity="center"
+			    android:text="@string/format"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+			<TextView
+			    android:id="@+id/displayFileSizeTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:text="@string/fileSize"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+			<TextView
+			    android:id="@+id/displayPathTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center"
+			    android:text="@string/path"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/ffpValuesTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/movieFormatEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center" />
+
+			<TextView
+			    android:id="@+id/movieFileSizeEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center" />
+
+			<TextView
+			    android:id="@+id/moviePathEditText"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:gravity="center" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/noteHeadingTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="5dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+
+			<TextView
+			    android:id="@+id/displayPersonalNoteTextView"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/personalNote"
+			    android:textSize="16sp"
+			    android:textStyle="bold" />
+
+		</TableRow>
+
+		<TableRow
+		    android:id="@+id/noteValueTableRow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="2dp"
+		    android:paddingLeft="5dp"
+		    android:paddingRight="5dp" >
+			
+		    <TextView
+		        android:id="@+id/moviePersonalNoteTextView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1" />
+
+		</TableRow>
+
+	</TableLayout>
+</ScrollView>

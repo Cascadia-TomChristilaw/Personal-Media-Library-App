@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 
 public class ListMediaFragment extends Fragment {
 	  
+	static boolean isSinglePane;
+	
 	 @Override
 	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	    Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class ListMediaFragment extends Fragment {
           List<Movie> allMovies = db.getAllMovies();
           
           for (Movie movie: allMovies) {
-              arrayChildren.add(movie.getTitle() + " (" + movie.getYear() + ")");
+              arrayChildren.add(movie.getID() + " - " + movie.getTitle() + " (" + movie.getYear() + ")");
           }
           moviesParent.setArrayChildren(arrayChildren);
 
@@ -54,16 +57,43 @@ public class ListMediaFragment extends Fragment {
 	 public void onActivityCreated(Bundle savedInstanceState) {
 		 super.onActivityCreated(savedInstanceState);	
 		 
+		 View v = getView().findViewById(R.id.phone_container);
+		  if(v == null){
+		   //it's run on tablet
+			  isSinglePane = false;
+		  } else {
+			  isSinglePane = true;
+		  }
+		 
 		 ExpandableListView expandableList = (ExpandableListView) getView().findViewById(R.id.moviesExpandableListView);
 		 		 
 		 expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                //Nothing here ever fires
-                System.err.println("child clicked");
-                Toast.makeText(getView().getContext(), ((TextView) ((LinearLayout )v).getChildAt(childPosition)).getText().toString(), Toast.LENGTH_SHORT).show();
-                return true;
+               
+              int fragmentContainer;
+          	  
+          	  if(isSinglePane){
+          			fragmentContainer = R.id.phone_container;
+          		 } else {
+          			fragmentContainer = R.id.detail_fragment_container;
+          		 }
+			   String selectedMovie = ((TextView) ((LinearLayout )v).getChildAt(groupPosition)).getText().toString();
+			   FragmentTransaction fragmentTransaction = null;
+			   
+			   MovieDisplayFragment movieToDisplay = new MovieDisplayFragment();
+			   Bundle bundle = new Bundle();
+			   bundle.putInt("movie", Integer.parseInt(selectedMovie.split(" ")[0]));
+			   movieToDisplay.setArguments(bundle);
+			   fragmentTransaction =
+						  getActivity().getFragmentManager().beginTransaction();			   
+			   fragmentTransaction.replace(fragmentContainer, movieToDisplay);
+			   fragmentTransaction.addToBackStack(null);
+			   fragmentTransaction.commit();
+       
+                Toast.makeText(getView().getContext(), selectedMovie, Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
 		 

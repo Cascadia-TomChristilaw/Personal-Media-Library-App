@@ -105,24 +105,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Getting single movie
     public Movie getMovie(int id) {
     	SQLiteDatabase db = this.getReadableDatabase();
+    	
+    	String selectQuery = "SELECT * FROM " + TABLE_MOVIES + " WHERE id=" + id;
+    	
+    	
+    	Cursor cursor = db.rawQuery(selectQuery, null);
     	 
-        Cursor cursor = db.query(TABLE_MOVIES, new String[] { KEY_ID,
-        		KEY_TITLE,
-        		KEY_RELEASE_DATE,
-        		KEY_YEAR,
-        		KEY_MPAA,
-        		KEY_GENRE,
-        		KEY_CAST,
-        		KEY_PLOT,
-        		KEY_RUNTIME,
-        		KEY_FORMAT,
-        		KEY_SIZE,
-        		KEY_LOCATION,
-        		KEY_PATH,
-        		KEY_LENT_TO,
-        		KEY_IMAGE_URL,
-        		KEY_NOTE}, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+//        Cursor cursor = db.query(TABLE_MOVIES, new String[] { KEY_ID,
+//        		KEY_TITLE,
+//        		KEY_RELEASE_DATE,
+//        		KEY_YEAR,
+//        		KEY_MPAA,
+//        		KEY_GENRE,
+//        		KEY_CAST,
+//        		KEY_PLOT,
+//        		KEY_RUNTIME,
+//        		KEY_FORMAT,
+//        		KEY_SIZE,
+//        		KEY_LOCATION,
+//        		KEY_PATH,
+//        		KEY_LENT_TO,
+//        		KEY_IMAGE_URL,
+//        		KEY_NOTE}, KEY_ID + "=" + id,
+//                new String[] { String.valueOf(id) }, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
      

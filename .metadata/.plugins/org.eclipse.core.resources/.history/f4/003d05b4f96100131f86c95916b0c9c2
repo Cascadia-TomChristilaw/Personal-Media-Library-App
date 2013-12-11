@@ -1,0 +1,105 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class ListMediaFragment extends Fragment {
+	  
+	static boolean isSinglePane;
+	
+	 @Override
+	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	    Bundle savedInstanceState) {
+		  View view = null;
+		  
+		  view = inflater.inflate(R.layout.layout_listmediafragment, null);
+		  
+		  ExpandableListView list = (ExpandableListView)view.findViewById(R.id.moviesExpandableListView);
+		  
+		  ArrayList<Parent> arrayParents = new ArrayList<Parent>();
+	      ArrayList<String> arrayChildren = new ArrayList<String>();
+	        
+	      Parent moviesParent = new Parent();
+	      moviesParent.setTitle("Movies");
+           
+          arrayChildren = new ArrayList<String>();
+          
+          DatabaseHandler db = new DatabaseHandler(getActivity());
+          
+          List<Movie> allMovies = db.getAllMovies();
+          
+          for (Movie movie: allMovies) {
+              arrayChildren.add(movie.getTitle() + " (" + movie.getYear() + ") ID: " + movie.getID());
+          }
+          moviesParent.setArrayChildren(arrayChildren);
+
+          //in this array we add the Parent object. We will use the arrayParents at the setAdapter
+          arrayParents.add(moviesParent); 
+	        
+          //sets the adapter that provides data to the list.
+          list.setAdapter(new MyCustomAdapter(getActivity(), arrayParents));
+	        
+	      return view;
+	   }
+	 
+	 public void onActivityCreated(Bundle savedInstanceState) {
+		 super.onActivityCreated(savedInstanceState);	
+		 
+		 View v = getView().findViewById(R.id.phone_container);
+		  if(v == null){
+		   //it's run on tablet
+			  isSinglePane = false;
+		  } else {
+			  isSinglePane = true;
+		  }
+		 
+		 ExpandableListView expandableList = (ExpandableListView) getView().findViewById(R.id.moviesExpandableListView);
+		 		 
+		 expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+               
+              int fragmentContainer;
+          	  
+          	  if(isSinglePane){
+          			fragmentContainer = R.id.phone_container;
+          		 } else {
+          			fragmentContainer = R.id.detail_fragment_container;
+          		 }
+			   String selectedMovie = ((TextView) ((LinearLayout )v).getChildAt(childPosition)).getText().toString();
+			   FragmentTransaction fragmentTransaction = null;
+			   
+			   MovieDisplayFragment movieToDisplay = new MovieDisplayFragment();
+			   Bundle bundle = new Bundle();
+			   String[] movieId = selectedMovie.split(" ");
+			   bundle.putInt("movie", Integer.parseInt(movieId[movieId.length - 1]));
+			   movieToDisplay.setArguments(bundle);
+			   fragmentTransaction =
+						  getActivity().getFragmentManager().beginTransaction();			   
+			   fragmentTransaction.replace(fragmentContainer, movieToDisplay);
+			   fragmentTransaction.addToBackStack(null);
+			   fragmentTransaction.commit();
+       
+                Toast.makeText(getView().getContext(), ((TextView) ((LinearLayout )v).getChildAt(childPosition)).getText().toString(), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+		 
+		 Log.d("ACTIVITY!! ", "The ListMediaFragment activity has been created.");
+		 
+	 }
+
+	  }

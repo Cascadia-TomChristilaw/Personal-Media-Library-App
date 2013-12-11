@@ -1,0 +1,52 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MovieDisplayFragment extends Fragment {
+	
+	TextView movieTitleTextView;
+	TextView movieReleasedTextView;
+	TextView movieMpaaRatingEditText;
+	TextView movieGenreEditText;
+	TextView movieRuntimeEditText;
+	TextView movieCastTextView;
+	TextView moviePlotTextView;
+	TextView movieFormatEditText;
+	TextView movieFileSizeEditText;
+	TextView moviePathEditText;
+	TextView moviePersonalNoteTextView;
+	
+	@Override
+	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+	    Bundle savedInstanceState) {
+		 
+		  View view = inflater.inflate(R.layout.layout_moviedisplayfragment, null);				 
+	      return view;
+	   }
+	 public void onActivityCreated(Bundle savedInstanceState) {
+		 super.onActivityCreated(savedInstanceState);
+		 
+		 movieTitleTextView = (EditText) getView().findViewById(R.id.movieTitleTextView);
+		 movieReleasedTextView = (EditText) getView().findViewById(R.id.movieReleasedTextView);
+		 movieMpaaRatingEditText = (EditText) getView().findViewById(R.id.movieMpaaRatingEditText);
+		 movieGenreEditText = (EditText) getView().findViewById(R.id.movieGenreEditText);
+		 movieRuntimeEditText = (EditText) getView().findViewById(R.id.movieRuntimeEditText);
+		 movieCastTextView = (EditText) getView().findViewById(R.id.movieCastTextView);
+		 moviePlotTextView = (EditText) getView().findViewById(R.id.moviePlotTextView);
+		 movieFormatEditText = (EditText) getView().findViewById(R.id.movieFormatEditText);
+		 movieFileSizeEditText = (EditText) getView().findViewById(R.id.movieFileSizeEditText);
+		 moviePathEditText = (EditText) getView().findViewById(R.id.moviePathEditText);
+		 moviePersonalNoteTextView = (EditText) getView().findViewById(R.id.moviePersonalNoteTextView);
+		 
+		 Log.d("ACTIVITY!! ", "The MovieDisplayFragment activity has been created.");
+		 
+	 }
+
+}

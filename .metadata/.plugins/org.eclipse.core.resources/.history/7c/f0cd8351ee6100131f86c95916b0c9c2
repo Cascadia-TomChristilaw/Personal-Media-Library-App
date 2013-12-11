@@ -1,0 +1,7 @@
+package com.mediaphile_bit272.mediaphilev2;
+
+import android.app.Fragment;
+
+public class MovieDisplayFragment extends Fragment {
+
+}

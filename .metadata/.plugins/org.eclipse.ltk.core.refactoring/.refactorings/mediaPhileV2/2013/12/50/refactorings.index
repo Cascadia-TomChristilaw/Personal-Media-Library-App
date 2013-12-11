@@ -20,3 +20,6 @@
 1386612904590	Extracts string 'null' into R.string.addMovie
 1386704482408	Rename type 'ListMoviesFragment'
 1386704498785	Rename resource 'layout_listmoviesfragment.xml'
+1386713401586	Rename resource 'movie_display.xml'
+1386714369501	Rename field 'tableRow1'
+1386714383988	Rename field 'tableRow2'
