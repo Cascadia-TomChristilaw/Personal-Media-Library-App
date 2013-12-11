@@ -3,7 +3,6 @@ package com.mediaphile_bit272.mediaphilev2;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -53,11 +52,10 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 	String allText;
 	public Boolean _search;
 	public String FINAL_MOVIE;
-	public String _updateMovie;
 	URI _url;
-	URI Final_URL;
 	MovieMaker _mm;
 	TitleMaker _tm;
+
 	//The movie can come in as a normal title like "The Matrix" vs "The%20Matrix", the method getBetterTitle() will fix the %20 for spaces.
 	//Search = true will toggle the searching feature which will then make return the array in onArrayMade. false will make the movie class and work inside of onMovieMade
 	//MovieMaker and TitleMaker are both needed to make this work, just pass them.
@@ -78,20 +76,6 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 			this._url = null;
 		}
 	}
-	//updates the thread so we dont have to make a new thread;
-	public void update(String movie, Boolean newSearch) {
-		this._updateMovie = getBetterTitle(movie);
-		try {
-			Final_URL = new URI("http://www.omdbapi.com/?t=" + _updateMovie);
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		this._url = this.Final_URL;
-	}
-	public void setURL(URI better){
-		this._url = better;
-	}
 	//Fixes the original string that is passed to make the url work returns a string
 	
 	private String getBetterTitle(String _movie) {
@@ -101,7 +85,6 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 			for (int i = 0; i < treatedInput.length - 1; i++)
 				finalInput += (treatedInput[i] + "%20");
 		}
-		Log.v("in getBetterString, I got", finalInput);
 		return (finalInput + treatedInput[treatedInput.length - 1]);
 	}
 	//populates the text from the web service to work.
@@ -137,7 +120,6 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 			return e.getLocalizedMessage();
 		}
 
-		Log.v("I am in the back ground with:", text);
 		return text;
 	}
 	//This will decide if we are searching or if we are making a movie object
@@ -153,7 +135,6 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 	public void makeAnArray(String toParse) {
 		JSONObject serverJSON = null;
 		String[] arr = new String[5];
-		String[] titles = new String[5];
 		try {
 			serverJSON = new JSONObject(toParse);
 			JSONArray newOne = new JSONArray(serverJSON.getString("Search"));
@@ -161,19 +142,14 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 				// JSONObject temp = new JSONObject(newOne.get(i));
 				String temp = newOne.getString(i);
 				JSONObject jObject = new JSONObject(temp);
-				titles[i] = jObject.getString("Title");
-				arr[i] = jObject.getString("Title") + " ("
+				arr[i] = jObject.getString("Title") + "("
 						+ jObject.getString("Year") + ")";
 			}
 		} catch (JSONException e1) {
 			Log.v("Method makeAnArray in class RestHandler ", "Failed");
 			e1.printStackTrace();
 		}
-		Log.v("in RestHandler.makeAnArray", "with");
-		for(int i = 0; i < arr.length; i++){
-			Log.v("Number " + (i+1), arr[i] );
-		}
-		_tm.onArrayMade(arr,titles);
+		_tm.onArrayMade(arr);
 	}
 	//this takes a string parses it to json and pulls out information that we will use to populate different fields in the movie class
 	public void makeAMovie(String toParse) {
@@ -204,22 +180,22 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 
 		} catch (JSONException e) {
 			Log.v("Method makeAMovie in class RestHandler ", "Failed");
-			Log.v("I was given: ", toParse);
 			e.printStackTrace();
 		}// end
-		
-		//create and send movie to handler
-		_mm.onMovieMade(new Movie(title, release_date, year, mpaa_rating,
-				genre, cast, plot, runtime));
+			// Create new movie and populate it's fields.
+		Movie toReturn = new Movie(title, release_date, year, mpaa_rating,
+				genre, cast, plot, runtime);
+		// Send the movie to the movie handler
+		_mm.onMovieMade(toReturn);
 	}
 
 	// Interfaces
 	public interface MovieMaker {
 		public void onMovieMade(Movie toGive);
 	}
-	
+
 	public interface TitleMaker {
-		public void onArrayMade(String[] arr,String[] titles);
+		public void onArrayMade(String[] arr);
 	}
 
 }

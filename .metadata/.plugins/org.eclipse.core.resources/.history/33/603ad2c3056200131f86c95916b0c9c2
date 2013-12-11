@@ -153,7 +153,6 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 	public void makeAnArray(String toParse) {
 		JSONObject serverJSON = null;
 		String[] arr = new String[5];
-		String[] titles = new String[5];
 		try {
 			serverJSON = new JSONObject(toParse);
 			JSONArray newOne = new JSONArray(serverJSON.getString("Search"));
@@ -161,7 +160,6 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 				// JSONObject temp = new JSONObject(newOne.get(i));
 				String temp = newOne.getString(i);
 				JSONObject jObject = new JSONObject(temp);
-				titles[i] = jObject.getString("Title");
 				arr[i] = jObject.getString("Title") + " ("
 						+ jObject.getString("Year") + ")";
 			}
@@ -173,7 +171,7 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 		for(int i = 0; i < arr.length; i++){
 			Log.v("Number " + (i+1), arr[i] );
 		}
-		_tm.onArrayMade(arr,titles);
+		_tm.onArrayMade(arr);
 	}
 	//this takes a string parses it to json and pulls out information that we will use to populate different fields in the movie class
 	public void makeAMovie(String toParse) {
@@ -219,7 +217,7 @@ public class RestHandler extends AsyncTask<Object, Object, String> {
 	}
 	
 	public interface TitleMaker {
-		public void onArrayMade(String[] arr,String[] titles);
+		public void onArrayMade(String[] arr);
 	}
 
 }

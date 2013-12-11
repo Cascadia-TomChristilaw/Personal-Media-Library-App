@@ -1,8 +1,7 @@
 package com.mediaphile_bit272.mediaphilev2;
 
-import java.util.concurrent.ExecutionException;
-
-import org.json.JSONObject;
+import com.mediaphile_bit272.mediaphilev2.RestHandler.MovieMaker;
+import com.mediaphile_bit272.mediaphilev2.RestHandler.TitleMaker;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -17,11 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.mediaphile_bit272.mediaphilev2.RestHandler.MovieMaker;
-import com.mediaphile_bit272.mediaphilev2.RestHandler.TitleMaker;
-
 public class AddMovieFragment extends Fragment implements MovieMaker,
-		TitleMaker {
+		TitleMaker{
 
 	EditText movieTitleEditText;
 	Button titleSearchButton;
@@ -40,25 +36,22 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 	MovieMaker myMovieMaker;
 	TitleMaker myTitleMaker;
 	String[] searchResult;
-	String[] returnedTitles;
 	Movie curMovie;
 	RestHandler rest;
 	int MovieLocation;
 
-	public void updateGivenFields() {
-		this.movieTitleEditText.setText(curMovie.getTitle());
-		this.releasedEditText.setText(curMovie.getReleaseDate());
-		this.mpaaRatingEditText.setText(curMovie.getMpaa());
-		String[] newGenre = curMovie.getGenre().split(",");
-		this.genreEditText.setText(newGenre[0]);
-		this.runtimeEditText.setText(curMovie.getRuntime());
-		this.castEditText.setText(curMovie.getCast());
-		this.plotEditText.setText(curMovie.getPlot());
-	}
+	Movie matrixMovie = new Movie(
+			"The Matrix",
+			"31 Mar 1999",
+			"1999",
+			"R",
+			"Action, Adventure, Sci-Fi",
+			"Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving",
+			"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+			"2 h 16 min");
 
-	public void setResult(String[] arr, String[] t) {
+	public void setResult(String[] arr) {
 		this.searchResult = arr;
-		this.returnedTitles = t;
 	}
 
 	public void setCurMovie(Movie result) {
@@ -69,6 +62,24 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 		return this.curMovie;
 	}
 
+	public String[] getSearchResult() {
+		return searchResult;
+	}
+	
+	@Override
+	public void onArrayMade(String[] arrr) {
+		Log.v("Yo", "I made it onArrayMade");
+		setResult(arrr);
+
+	}
+
+	@Override
+	public void onMovieMade(Movie toGive) {
+		Log.v("Yo", "I made it onMovieMade");
+		setCurMovie(toGive);
+
+	}
+
 	OnClickListener titleSearchButtonListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -77,7 +88,7 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 			rest = new RestHandler(searchString, true, myMovieMaker,
 					myTitleMaker);
 			rest.execute();
-			
+
 			Toast.makeText(getActivity(),
 					"Your search string is " + searchString, Toast.LENGTH_LONG)
 					.show();
@@ -92,11 +103,10 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 									"You selected " + searchResult[which],
 									Toast.LENGTH_LONG).show();
 							MovieLocation = which;
-							Log.v("The search button is passing:",
-									returnedTitles[MovieLocation]);
-							RestHandler rt = new RestHandler(
-									returnedTitles[MovieLocation], false,
-									myMovieMaker, myTitleMaker);
+							String delims = "(";
+							String[] toCall = searchResult[MovieLocation].split(delims);
+							Log.v(toCall[0] + toCall[1],"is what im passing");
+							RestHandler rt = new RestHandler(searchResult[MovieLocation],false,myMovieMaker,myTitleMaker);
 							rt.execute();
 						}
 
@@ -115,15 +125,15 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 			DatabaseHandler db = new DatabaseHandler(getView().getContext());
 
 			Movie movieToSave = new Movie(movieTitleEditText.getText()
-					.toString().trim(), releasedEditText.getText().toString().trim(),
-					releasedEditText.getText().toString().split(" ")[2].trim(),
-					mpaaRatingEditText.getText().toString().trim(), genreEditText
-							.getText().toString().trim(), castEditText.getText()
-							.toString().trim(), plotEditText.getText().toString().trim(),
-					runtimeEditText.getText().toString().trim(), formatEditText
-							.getText().toString().trim(), fileSizeEditText.getText()
-							.toString().trim(), pathEditText.getText().toString().trim(),
-					personalNoteEditText.getText().toString().trim());
+					.toString(), releasedEditText.getText().toString(),
+					releasedEditText.getText().toString().split(" ")[2],
+					mpaaRatingEditText.getText().toString(), genreEditText
+							.getText().toString(), castEditText.getText()
+							.toString(), plotEditText.getText().toString(),
+					runtimeEditText.getText().toString(), formatEditText
+							.getText().toString(), fileSizeEditText.getText()
+							.toString(), pathEditText.getText().toString(),
+					personalNoteEditText.getText().toString());
 			db.addMovie(movieToSave);
 
 			Log.d("SUCCESS!! ", "The save movie button has been clicked.");
@@ -174,21 +184,6 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 
 		Log.d("ACTIVITY!! ", "The AddMovieFragment activity has been created.");
 
-	}
-
-	@Override
-	public void onArrayMade(String[] arrr, String[] titlesForReference) {
-		Log.v("Yo", "I made it onArrayMade");
-		setResult(arrr, titlesForReference);
-
-	}
-
-	@Override
-	public void onMovieMade(Movie toGive) {
-		Log.v("Yo", "I made it onMovieMade");
-		setCurMovie(toGive);
-		updateGivenFields();
-
-	}
+	}	
 
 }

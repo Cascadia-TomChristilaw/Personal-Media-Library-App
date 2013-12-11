@@ -1,8 +1,7 @@
 package com.mediaphile_bit272.mediaphilev2;
 
-import java.util.concurrent.ExecutionException;
-
-import org.json.JSONObject;
+import com.mediaphile_bit272.mediaphilev2.RestHandler.MovieMaker;
+import com.mediaphile_bit272.mediaphilev2.RestHandler.TitleMaker;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -16,9 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.mediaphile_bit272.mediaphilev2.RestHandler.MovieMaker;
-import com.mediaphile_bit272.mediaphilev2.RestHandler.TitleMaker;
 
 public class AddMovieFragment extends Fragment implements MovieMaker,
 		TitleMaker {
@@ -77,7 +73,7 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 			rest = new RestHandler(searchString, true, myMovieMaker,
 					myTitleMaker);
 			rest.execute();
-			
+
 			Toast.makeText(getActivity(),
 					"Your search string is " + searchString, Toast.LENGTH_LONG)
 					.show();
@@ -115,15 +111,15 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 			DatabaseHandler db = new DatabaseHandler(getView().getContext());
 
 			Movie movieToSave = new Movie(movieTitleEditText.getText()
-					.toString().trim(), releasedEditText.getText().toString().trim(),
-					releasedEditText.getText().toString().split(" ")[2].trim(),
-					mpaaRatingEditText.getText().toString().trim(), genreEditText
-							.getText().toString().trim(), castEditText.getText()
-							.toString().trim(), plotEditText.getText().toString().trim(),
-					runtimeEditText.getText().toString().trim(), formatEditText
-							.getText().toString().trim(), fileSizeEditText.getText()
-							.toString().trim(), pathEditText.getText().toString().trim(),
-					personalNoteEditText.getText().toString().trim());
+					.toString(), releasedEditText.getText().toString(),
+					releasedEditText.getText().toString().split(" ")[2],
+					mpaaRatingEditText.getText().toString(), genreEditText
+							.getText().toString(), castEditText.getText()
+							.toString(), plotEditText.getText().toString(),
+					runtimeEditText.getText().toString(), formatEditText
+							.getText().toString(), fileSizeEditText.getText()
+							.toString(), pathEditText.getText().toString(),
+					personalNoteEditText.getText().toString());
 			db.addMovie(movieToSave);
 
 			Log.d("SUCCESS!! ", "The save movie button has been clicked.");

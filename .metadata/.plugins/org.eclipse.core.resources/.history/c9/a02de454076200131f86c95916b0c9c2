@@ -78,6 +78,16 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 					myTitleMaker);
 			rest.execute();
 			
+			try {
+				String sent = rest.get();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			Toast.makeText(getActivity(),
 					"Your search string is " + searchString, Toast.LENGTH_LONG)
 					.show();
@@ -115,15 +125,15 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 			DatabaseHandler db = new DatabaseHandler(getView().getContext());
 
 			Movie movieToSave = new Movie(movieTitleEditText.getText()
-					.toString().trim(), releasedEditText.getText().toString().trim(),
-					releasedEditText.getText().toString().split(" ")[2].trim(),
-					mpaaRatingEditText.getText().toString().trim(), genreEditText
-							.getText().toString().trim(), castEditText.getText()
-							.toString().trim(), plotEditText.getText().toString().trim(),
-					runtimeEditText.getText().toString().trim(), formatEditText
-							.getText().toString().trim(), fileSizeEditText.getText()
-							.toString().trim(), pathEditText.getText().toString().trim(),
-					personalNoteEditText.getText().toString().trim());
+					.toString(), releasedEditText.getText().toString(),
+					releasedEditText.getText().toString().split(" ")[2],
+					mpaaRatingEditText.getText().toString(), genreEditText
+							.getText().toString(), castEditText.getText()
+							.toString(), plotEditText.getText().toString(),
+					runtimeEditText.getText().toString(), formatEditText
+							.getText().toString(), fileSizeEditText.getText()
+							.toString(), pathEditText.getText().toString(),
+					personalNoteEditText.getText().toString());
 			db.addMovie(movieToSave);
 
 			Log.d("SUCCESS!! ", "The save movie button has been clicked.");
