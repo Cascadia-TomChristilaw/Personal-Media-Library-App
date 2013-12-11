@@ -93,7 +93,7 @@ public class ListMediaFragment extends Fragment {
 			   fragmentTransaction.commit();
        
                 Toast.makeText(getView().getContext(), selectedMovie, Toast.LENGTH_SHORT).show();
-                return false;
+                return true;
             }
         });
 		 

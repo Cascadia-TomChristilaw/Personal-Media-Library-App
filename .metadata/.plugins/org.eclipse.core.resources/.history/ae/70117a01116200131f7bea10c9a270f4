@@ -61,7 +61,7 @@
 		</TableRow>
 		
 		<TableRow
-		    android:id="@+id/rgrHeadingsTableRow"
+		    android:id="@+id/releaseDateTableRow"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="5dp"
@@ -111,7 +111,7 @@
 		        android:id="@+id/movieMpaaRatingEditText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:gravity="center_horizontal"
+		        android:gravity="center"
 		        android:text="rating" />
 
 		    <TextView
@@ -119,7 +119,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:gravity="center_horizontal"
+		        android:gravity="center"
 		        android:text="genre" />
 
 		    <TextView
@@ -127,7 +127,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:gravity="center_horizontal"
+		        android:gravity="center"
 		        android:text="runtime" />
 
 		</TableRow>
@@ -213,7 +213,7 @@
 			    android:id="@+id/displayFormatTextView"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:gravity="center_horizontal"
+			    android:gravity="center"
 			    android:text="@string/format"
 			    android:textSize="16sp"
 			    android:textStyle="bold" />
@@ -223,7 +223,7 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:gravity="center_horizontal"
+			    android:gravity="center"
 			    android:text="@string/fileSize"
 			    android:textSize="16sp"
 			    android:textStyle="bold" />
@@ -233,7 +233,7 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:gravity="center_horizontal"
+			    android:gravity="center"
 			    android:text="@string/path"
 			    android:textSize="16sp"
 			    android:textStyle="bold" />
@@ -252,21 +252,21 @@
 			    android:id="@+id/movieFormatEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
-			    android:gravity="center_horizontal" />
+			    android:gravity="center" />
 
 			<TextView
 			    android:id="@+id/movieFileSizeEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:gravity="center_horizontal" />
+			    android:gravity="center" />
 
 			<TextView
 			    android:id="@+id/moviePathEditText"
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
-			    android:gravity="center_horizontal" />
+			    android:gravity="center" />
 
 		</TableRow>
 

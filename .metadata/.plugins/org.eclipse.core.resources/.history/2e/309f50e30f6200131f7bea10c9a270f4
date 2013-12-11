@@ -49,7 +49,8 @@ public class AddMovieFragment extends Fragment implements MovieMaker,
 		this.movieTitleEditText.setText(curMovie.getTitle());
 		this.releasedEditText.setText(curMovie.getReleaseDate());
 		this.mpaaRatingEditText.setText(curMovie.getMpaa());
-		this.genreEditText.setText(curMovie.getGenre());
+		String[] newGenre = curMovie.getGenre().split(",");
+		this.genreEditText.setText(newGenre[0]);
 		this.runtimeEditText.setText(curMovie.getRuntime());
 		this.castEditText.setText(curMovie.getCast());
 		this.plotEditText.setText(curMovie.getPlot());
