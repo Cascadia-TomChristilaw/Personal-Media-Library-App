@@ -7,8 +7,7 @@
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List of movies will display here" />
+        android:layout_height="wrap_content" />
 
     <ExpandableListView
         android:id="@+id/moviesExpandableListView"
